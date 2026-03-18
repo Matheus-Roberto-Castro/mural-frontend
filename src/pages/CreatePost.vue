@@ -176,8 +176,8 @@ export default {
 
       try {
         const url = this.isEditing
-          ? `http://localhost:4000/posts/${this.editId}`
-          : "http://localhost:4000/posts";
+          ? `${API_URL}/posts/${this.editId}`
+          : `${API_URL}/posts`;
 
         const method = this.isEditing ? "PUT" : "POST";
 

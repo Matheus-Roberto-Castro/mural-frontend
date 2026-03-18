@@ -58,7 +58,6 @@ import { ref, watch, nextTick } from "vue";
 
 const props = defineProps({
   modelValue: Boolean,
-  apiUrl: { type: String, default: "http://localhost:4000" }
 });
 const emit = defineEmits(["update:modelValue", "open", "close"]);
 
@@ -83,7 +82,7 @@ function close() {
 async function loadNotifications() {
   try {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${props.apiUrl}/notifications`, {
+    const res = await fetch(`${API_URL}/notifications`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -100,7 +99,7 @@ async function loadNotifications() {
 async function markAsRead(id) {
   try {
     const token = localStorage.getItem("token");
-    const res = await fetch(`${props.apiUrl}/notifications/${id}/read`, {
+    const res = await fetch(`${API_URL}/notifications/${id}/read`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +120,7 @@ async function markAllRead() {
   try {
     const token = localStorage.getItem("token");
 
-    await fetch(`${props.apiUrl}/notifications/mark-all-read`, {
+    await fetch(`${API_URL}/notifications/mark-all-read`, {
       method: "PUT",
       headers: { Authorization: `Bearer ${token}` }
     });

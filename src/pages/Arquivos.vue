@@ -69,7 +69,7 @@
   async mounted() {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:4000/posts/expired", {
+      const response = await fetch(`${API_URL}/posts/expired`, {
         headers: { "Authorization": `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Erro ao buscar postagens arquivadas");
@@ -111,7 +111,7 @@
     async downloadPDF() {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:4000/posts/expired/export/pdf", {
+        const response = await fetch(`${API_URL}/posts/expired/export/pdf`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 

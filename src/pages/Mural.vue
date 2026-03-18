@@ -260,7 +260,7 @@ export default {
 
     async loadPosts() {
       try {
-        const response = await fetch("http://localhost:4000/posts");
+        const response = await fetch(`${API_URL}/posts`);
         if (!response.ok) throw new Error("Erro ao carregar postagens");
 
         const data = await response.json();
@@ -282,7 +282,7 @@ export default {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch(`http://localhost:4000/posts/${id}`, {
+        const response = await fetch(`${API_URL}/posts/${id}`, {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -353,7 +353,7 @@ export default {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        const res = await fetch("http://localhost:4000/notifications", {
+        const res = await fetch(`${API_URL}/notifications`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -376,7 +376,7 @@ export default {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        const res = await fetch('http://localhost:4000/notifications/mark-all-read', {
+        const res = await fetch(`${API_URL}/notifications/mark-all-read`, {
           method: 'PUT',
           headers: { Authorization: `Bearer ${token}` }
         });
@@ -396,7 +396,7 @@ export default {
         const token = localStorage.getItem("token");
         if (!token) return;
 
-        const res = await fetch("http://localhost:4000/notifications/clear", {
+        const res = await fetch(`${API_URL}/notifications/clear`, {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` }
         });
