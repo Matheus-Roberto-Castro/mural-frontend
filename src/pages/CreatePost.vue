@@ -114,7 +114,7 @@ export default {
   methods: {
     async loadPost(id) {
       try {
-        const response = await fetch(`http://localhost:4000/posts/${id}`);
+        const response = await fetch(`${API_URL}/posts/${id}`);
         if (!response.ok) throw new Error("Erro ao carregar postagem.");
         const post = await response.json();
 
