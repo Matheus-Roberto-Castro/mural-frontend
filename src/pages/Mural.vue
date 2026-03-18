@@ -794,7 +794,7 @@ export default {
   color: #42b983;
   text-align: center;
   padding: 20px;
-  background-image: url('src/assets/fatec.jpg');
+  background-image: url('/fatec.jpg');
   background-size: cover;        
   background-position: center;   
   background-repeat: no-repeat;
