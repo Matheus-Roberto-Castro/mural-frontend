@@ -56,6 +56,8 @@
 <script setup>
 import { ref, watch, nextTick } from "vue";
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+
 const props = defineProps({
   modelValue: Boolean,
 });
